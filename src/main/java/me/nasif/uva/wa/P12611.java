@@ -11,7 +11,7 @@ import java.util.logging.Logger;
  UVA 12611 - Beautiful Flag
  Ad Hoc
  */
-public class Main {
+public class P12611 {
 
     private static final boolean readFromFile = true;
     private static final PrintWriter out = new PrintWriter(System.out, true);
@@ -20,9 +20,9 @@ public class Main {
     private static void initScanner() {
         if (readFromFile) {
             try {
-                scanner = new Scanner(new File(Main.class.getClassLoader().getResource("uva-12611-in.txt").getFile()));
+                scanner = new Scanner(new File(P12611.class.getClassLoader().getResource("uva-12611-in.txt").getFile()));
             } catch (FileNotFoundException ex) {
-                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(P12611.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
             scanner = new Scanner(System.in);
