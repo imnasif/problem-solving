@@ -1,4 +1,4 @@
-package me.nasif.uva;
+package me.nasif.uva.ac;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -7,9 +7,14 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/*
+UVA 10346 Peter's Smokes AC
+Ad Hoc
+*/
+
 public class P10346 {
 
-    private static final boolean readFromFile = false;
+    private static final boolean readFromFile = true;
     private static final PrintWriter out = new PrintWriter(System.out, true);
     private static Scanner scanner;
 
