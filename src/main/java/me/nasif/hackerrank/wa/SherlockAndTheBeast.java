@@ -20,41 +20,36 @@ public class SherlockAndTheBeast {
         int digits = 0, cases = scanner.nextInt();
         while (cases-- != 0) {
             digits = scanner.nextInt();
-            boolean yes = false;
             if (digits % 3 == 0) {
                 while (digits-- != 0) {
                     System.out.print(5);
                 }
                 System.out.println();
-                yes = true;
             } else if (digits % 5 == 0) {
                 while (digits-- != 0) {
                     System.out.print(3);
                 }
                 System.out.println();
-                yes = true;
-            }
-
-            if (!yes) {
-                int n3 = 0, n5 = 0;
-                for (int i = 0; i * 3 < digits && (digits - i * 3) % 5 == 0; i++) {
-                    n5 = i * 3;
-                    n3 = digits - n5;
-                    yes = true;
-                }
-                if (yes) {
-                    for (int i = 0; i < n5; i++) {
-                        System.out.print(5);
+            } else {
+                boolean yes = false;
+                for (int i = 0; i * 5 < digits; i++) {
+                    if ((digits - i * 5) % 3 == 0) {
+                        int n3 = i * 5;
+                        int n5 = digits - n3;
+                        while (n5-- != 0) {
+                            System.out.print(5);
+                        }
+                        while (n3-- != 0) {
+                            System.out.print(3);
+                        }
+                        System.out.println();
+                        yes = true;
+                        break;
                     }
-                    for (int i = 0; i < n3; i++) {
-                        System.out.print(3);
-                    }
-                    System.err.println();
                 }
-
-            }
-            if (!yes) {
-                System.out.println(-1);
+                if(!yes){
+                    System.out.println(-1);
+                }
             }
         }
     }
