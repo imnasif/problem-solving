@@ -1,5 +1,6 @@
 package me.nasif.hackerrank.wa;
 
+import me.nasif.hackerrank.ac.ChocolateFest;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
