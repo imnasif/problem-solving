@@ -1,4 +1,4 @@
-package me.nasif.hackerrank.ac;
+package me.nasif.hackerrank.algo.ac;
 
 import java.io.File;
 import java.util.ArrayList;
