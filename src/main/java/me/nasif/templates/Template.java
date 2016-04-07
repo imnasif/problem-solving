@@ -1,4 +1,4 @@
-package me.nasif;
+package me.nasif.templates;
 
 import java.io.File;
 import java.io.FileNotFoundException;
