@@ -35,14 +35,6 @@ public class MatrixRotation {
     public static int[][] rotate(int[][] arr, int r, int c, int t) {
         int[][] rotated = new int[r][c];
 
-        for (int i = 0; i < r; i++) {
-            for (int j = 0; j < c; j++) {
-                rotated[i][j] = arr[i][j - t];
-                System.out.print(rotated[i][j]);
-            }
-            System.out.println();
-        }
-
         return rotated;
     }
 
