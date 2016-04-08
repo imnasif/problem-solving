@@ -1,4 +1,4 @@
-package me.nasif.uva.wa;
+package me.nasif.uva.ac;
 
 import java.io.FileNotFoundException;
 import java.util.LinkedList;
