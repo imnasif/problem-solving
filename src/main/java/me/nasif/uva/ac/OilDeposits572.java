@@ -2,8 +2,9 @@ package me.nasif.uva.ac;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
-import java.util.Stack;
 
 class node {
 
@@ -59,16 +60,15 @@ public class OilDeposits572 {
 
     private static void visitNeighbours(boolean[][] g, int r, int c, int x, int y, boolean[][] visited) {
 
-//        Queue q = new LinkedList();
-//        q.add(new node(x, y));
-        Stack stack = new Stack();
-        while (!stack.isEmpty()) {
-            node current = (node) stack.pop();
+        Queue q = new LinkedList();
+        q.add(new node(x, y));
+        while (!q.isEmpty()) {
+            node current = (node) q.remove();
             visited[current.x][current.y] = true;
             for (int i = 0; i < 8; i++) {
                 node n = new node(current.x + xDir[i], current.y + yDir[i]);
                 if (isValid(n.x, n.y, r, c) && g[n.x][n.y] && !visited[n.x][n.y]) {
-                    stack.push(n);
+                    q.add(n);
                 }
             }
 

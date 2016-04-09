@@ -1,5 +1,6 @@
 package me.nasif.hackerrank.algo.ac;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -9,8 +10,8 @@ import java.util.Scanner;
 public class EvenTree {
 
     public static void main(String[] args) throws FileNotFoundException {
-//        Scanner scanner = new Scanner(new File(EvenTree.class.getClassLoader().getResource("HackerRank/EvenTree-in.txt").getFile()));
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(new File(EvenTree.class.getClassLoader().getResource("HackerRank/EvenTree-in.txt").getFile()));
+//        Scanner scanner = new Scanner(System.in);
 
         int v = scanner.nextInt();
         int e = scanner.nextInt();
