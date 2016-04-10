@@ -1,4 +1,4 @@
-package me.nasif.hackerrank.algo.wa;
+package me.nasif.hackerrank.algo.ac;
 
 import java.io.File;
 import java.io.FileNotFoundException;
