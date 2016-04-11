@@ -3,6 +3,7 @@ package me.nasif.hackerrank.algo.ac;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -24,21 +25,8 @@ public class JourneyToTheMoon {
         for (int i = 0; i < e; i++) {
             int v1 = scan.nextInt();
             int v2 = scan.nextInt();
-
-            if (!graph.containsKey(v1)) {
-                ArrayList<Integer> l = new ArrayList<>();
-                l.add(v2);
-                graph.put(v1, l);
-            } else {
-                graph.get(v1).add(v2);
-            }
-            if (!graph.containsKey(v2)) {
-                ArrayList<Integer> l = new ArrayList<>();
-                l.add(v1);
-                graph.put(v2, l);
-            } else {
-                graph.get(v2).add(v1);
-            }
+            addEdge(v1, v2);
+            addEdge(v2, v1);
         }
 
         int countryCode = 0;
@@ -51,22 +39,31 @@ public class JourneyToTheMoon {
             }
         }
 
-        long t = ((long)v * ((long)v - 1)) / 2;
+        long t = ((long) v * ((long) v - 1)) / 2;
         for (Map.Entry<Integer, Integer> key : country.entrySet()) {
-            t -= ((long)key.getValue() * ((long)key.getValue() - 1)) / 2;
+            t -= ((long) key.getValue() * ((long) key.getValue() - 1)) / 2;
         }
         System.out.println(t);
+    }
+
+    private static void addEdge(int v1, int v2) {
+        if (!graph.containsKey(v1)) {
+            graph.put(v1, new ArrayList<>(Arrays.asList(v2)));
+        } else {
+            graph.get(v1).add(v2);
+        }
+
     }
 
     private static void visit(int parent, int countryCode) {
         visited[parent] = true;
         ArrayList<Integer> children = graph.get(parent);
-        for (Object child : children) {
-            if (!visited[(int) child]) {
-                country.put(countryCode, country.get(countryCode) + 1);
-                visit((int) child, countryCode);
-            }
-        }
+        children.stream()
+                .filter((child) -> (!visited[(int) child]))
+                .forEach((child) -> {
+                    country.put(countryCode, country.get(countryCode) + 1);
+                    visit((int) child, countryCode);
+                });
     }
 
 }
