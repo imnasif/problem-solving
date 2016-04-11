@@ -9,17 +9,18 @@ import java.util.Scanner;
 /*
  Flood Fill :  AC
  */
-class Point {
-
-    public Point(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
-    int x;
-    int y;
-}
-
 public class P572_OilDeposits {
+
+    static class Point {
+
+        int x, y;
+
+        public Point(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
+
+    }
 
     public static void main(String[] args) throws FileNotFoundException {
         Scanner scan = new Scanner(new File(P572_OilDeposits.class.getClassLoader().getResource("UVA/572-in.txt").getFile()));
