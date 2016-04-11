@@ -6,21 +6,23 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-class node {
+/*
+ Flood Fill :  AC
+ */
+class Point {
 
-    public node(int x, int y) {
+    public Point(int x, int y) {
         this.x = x;
         this.y = y;
     }
-
     int x;
     int y;
 }
 
-public class OilDeposits572 {
+public class P572_OilDeposits {
 
     public static void main(String[] args) throws FileNotFoundException {
-        Scanner scan = new Scanner(new File(OilDeposits572.class.getClassLoader().getResource("UVA/OilDeposits572-in.txt").getFile()));
+        Scanner scan = new Scanner(new File(P572_OilDeposits.class.getClassLoader().getResource("UVA/572-in.txt").getFile()));
 //        Scanner scan = new Scanner(System.in);
         while (scan.hasNext()) {
             int r, c;
@@ -61,19 +63,17 @@ public class OilDeposits572 {
     private static void visitNeighbours(boolean[][] g, int r, int c, int x, int y, boolean[][] visited) {
 
         Queue q = new LinkedList();
-        q.add(new node(x, y));
+        q.add(new Point(x, y));
         while (!q.isEmpty()) {
-            node current = (node) q.remove();
+            Point current = (Point) q.remove();
             visited[current.x][current.y] = true;
             for (int i = 0; i < 8; i++) {
-                node n = new node(current.x + xDir[i], current.y + yDir[i]);
+                Point n = new Point(current.x + xDir[i], current.y + yDir[i]);
                 if (isValid(n.x, n.y, r, c) && g[n.x][n.y] && !visited[n.x][n.y]) {
                     q.add(n);
                 }
             }
-
         }
-
     }
 
     private static boolean isValid(int x, int y, int r, int c) {

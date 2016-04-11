@@ -8,14 +8,16 @@ import java.util.Map;
 import java.util.Queue;
 import java.util.Scanner;
 
-public class Bicoloring10004 {
+/*
+ Flood FIll : AC
+*/
 
-    private static Scanner scanner;
+public class P10004_Bicoloring {
 
     public static void main(String[] args) throws FileNotFoundException {
-        
-        scanner = new Scanner(new File(Bicoloring10004.class.getClassLoader().getResource("UVA/Bicoloring10004-in.txt").getFile()));
-        scanner = new Scanner(System.in);
+
+        Scanner scanner = new Scanner(new File(P10004_Bicoloring.class.getClassLoader().getResource("UVA/10004-in.txt").getFile()));
+//        Scanner scanner = new Scanner(System.in);
 
         int v, e;
         while (scanner.hasNextInt()) {
