@@ -7,7 +7,6 @@ import java.util.Scanner;
 /*
  Ad hoc :  AC
  */
-
 public class P11831_StickerCollectorRobot {
 
     static class Point {
@@ -20,8 +19,9 @@ public class P11831_StickerCollectorRobot {
         }
     }
 
-    static Point pos, o;
-    static char[][] g;
+    static Point currentPosition, direction;
+    static char[][] field;
+    static char[] instructions;
     static int r, c, s;
 
     public static void main(String[] args) throws FileNotFoundException {
@@ -34,27 +34,31 @@ public class P11831_StickerCollectorRobot {
             if (r == 0 && c == 0 && s == 0) {
                 break;
             }
-            g = new char[r][c];
-            char[] q = new char[s];
+            field = new char[r][c];
+            instructions = new char[s];
             for (int i = 0; i < r; i++) {
                 String line = scan.next();
                 for (int j = 0; j < c; j++) {
-                    g[i][j] = line.charAt(j);
-                    check(i, j);
+                    field[i][j] = line.charAt(j);
+                    if (field[i][j] == 'N' || field[i][j] == 'L' || field[i][j] == 'S' || field[i][j] == 'O') {
+                        currentPosition = new Point(i, j);
+                        setDirection(field[i][j]);
+                    }
+
                 }
             }
-            q = scan.next().toCharArray();
+            instructions = scan.next().toCharArray();
 
             int res = 0;
 
-            for (int i = 0; i < q.length; i++) {
-                char v = q[i];
+            for (int i = 0; i < instructions.length; i++) {
+                char v = instructions[i];
                 if (v == 'D' || v == 'E') {
-                    changeOrientation(v);
+                    changeDirection(v);
                 } else {
                     moveForward();
-                    if (g[pos.x][pos.y] == '*') {
-                        g[pos.x][pos.y] = '.';
+                    if (field[currentPosition.x][currentPosition.y] == '*') {
+                        field[currentPosition.x][currentPosition.y] = '.';
                         ++res;
                     }
 
@@ -66,36 +70,32 @@ public class P11831_StickerCollectorRobot {
 
     }
 
-    private static void check(int i, int j) {
-        switch (g[i][j]) {
+    private static void setDirection(char c) {
+        switch (c) {
             case 'N':
-                pos = new Point(i, j);
-                o = new Point(-1, 0);
+                direction = new Point(-1, 0);
                 break;
             case 'L':
-                pos = new Point(i, j);
-                o = new Point(0, 1);
+                direction = new Point(0, 1);
                 break;
             case 'S':
-                pos = new Point(i, j);
-                o = new Point(1, 0);
+                direction = new Point(1, 0);
                 break;
             case 'O':
-                pos = new Point(i, j);
-                o = new Point(0, -1);
+                direction = new Point(0, -1);
                 break;
             default:
                 break;
         }
     }
 
-    private static void changeOrientation(char c) {
+    private static void changeDirection(char c) {
         switch (c) {
             case 'D':
-                o = new Point(o.y, o.x * (-1));
+                direction = new Point(direction.y, direction.x * (-1));
                 break;
             case 'E':
-                o = new Point(o.y * (-1), o.x);
+                direction = new Point(direction.y * (-1), direction.x);
                 break;
             default:
                 break;
@@ -104,18 +104,18 @@ public class P11831_StickerCollectorRobot {
 
     private static void moveForward() {
         if (isValidMove()) {
-            pos.x += o.x;
-            pos.y += o.y;
+            currentPosition.x += direction.x;
+            currentPosition.y += direction.y;
         }
     }
 
     private static boolean isValidMove() {
-        int nx = pos.x + o.x;
-        int ny = pos.y + o.y;
+        int nx = currentPosition.x + direction.x;
+        int ny = currentPosition.y + direction.y;
         return (nx >= 0
                 && nx < r
                 && ny >= 0
                 && ny < c
-                && g[nx][ny] != '#');
+                && field[nx][ny] != '#');
     }
 }
