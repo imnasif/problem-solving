@@ -23,7 +23,7 @@ public class P10346_PetersSmokes {
         }
     }
 
-    public static int getResult(int n, int k) {
+    private static int getResult(int n, int k) {
         int result = n;
         while (n >= k) {
             result += n / k;
