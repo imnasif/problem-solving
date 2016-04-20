@@ -5,13 +5,13 @@ import java.util.Scanner;
 
 public class CaesarCipher {
 
-    private static Scanner scanner;
+    private static Scanner scan;
 
     private static void initScanner() {
         try {
-            scanner = new Scanner(new File(CaesarCipher.class.getClassLoader().getResource("HackerRank/CaesarCipher-in.txt").getFile()));
+            scan = new Scanner(new File(CaesarCipher.class.getClassLoader().getResource("HackerRank/CaesarCipher-in.txt").getFile()));
         } catch (Exception ex) {
-            scanner = new Scanner(System.in);
+            scan = new Scanner(System.in);
         }
     }
 
@@ -19,9 +19,9 @@ public class CaesarCipher {
         initScanner();
         int n, k;
         String s;
-        n = scanner.nextInt();
-        s = scanner.next();
-        k = scanner.nextInt();
+        n = scan.nextInt();
+        s = scan.next();
+        k = scan.nextInt();
         for (int i = 0; i < s.length(); i++) {
             System.out.print(getRes(s.charAt(i), k));
         }

@@ -23,10 +23,11 @@ public class P118_MutantFlatworldExplorers {
     static char[] ins;
     static ArrayList<Point> scents;
 
-    public static void main(String[] args) throws FileNotFoundException {
+    private static Scanner scan;
 
-        Scanner scan = new Scanner(new File(P118_MutantFlatworldExplorers.class.getClassLoader().getResource("UVA/118-in.txt").getFile()));
-//        Scanner scan = new Scanner(System.in);
+    public static void main(String[] args) throws FileNotFoundException {
+        scan = new Scanner(new File("res/UVA/118.txt"));
+//        scan = new Scanner(System.in)
 
         max = new Point(scan.nextInt(), scan.nextInt());
         scents = new ArrayList<>();

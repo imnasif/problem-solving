@@ -1,4 +1,4 @@
-package me.nasif.hackerrank.algo.wa;
+package me.nasif.uva.ac;
 
 import java.util.Scanner;
 

@@ -5,14 +5,14 @@ import java.io.FileNotFoundException;
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
-import me.nasif.uva.ac.P10004_Bicoloring;
 
 public class Pangrams {
 
-    public static void main(String[] args) throws FileNotFoundException {
+    private static Scanner scan;
 
-        Scanner scan = new Scanner(new File(P10004_Bicoloring.class.getClassLoader().getResource("HackerRank/Pangrams-in.txt").getFile()));
-//        Scanner scan = new Scanner(System.in);
+    public static void main(String[] args) throws FileNotFoundException {
+        scan = new Scanner(new File("res/HackerRank/Pangrams.txt"));
+//        scan = new Scanner(System.in);
 
         String line = scan.nextLine();
         Set set = new HashSet();

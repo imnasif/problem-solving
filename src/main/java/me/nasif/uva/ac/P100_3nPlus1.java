@@ -8,20 +8,21 @@ import java.util.Scanner;
 
 /*
  Ad Hoc : AC
-*/
+ */
 public class P100_3nPlus1 {
 
     private static final Map map = new HashMap<>();
 
-    public static void main(String[] args) throws FileNotFoundException {
+    private static Scanner scan;
 
-        Scanner scanner = new Scanner(new File(P100_3nPlus1.class.getClassLoader().getResource("UVA/100-in.txt").getFile()));
-//        Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args) throws FileNotFoundException {
+        scan = new Scanner(new File("res/UVA/100.txt"));
+//        scan = new Scanner(System.in)
 
         int a, b;
-        while (scanner.hasNextInt()) {
-            a = scanner.nextInt();
-            b = scanner.nextInt();
+        while (scan.hasNextInt()) {
+            a = scan.nextInt();
+            b = scan.nextInt();
             System.out.printf("%d %d %d\n", a, b, getReuslt(a, b));
         }
 

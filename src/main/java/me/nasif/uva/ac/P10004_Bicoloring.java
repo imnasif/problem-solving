@@ -10,27 +10,27 @@ import java.util.Scanner;
 
 /*
  Flood FIll : AC
-*/
-
+ */
 public class P10004_Bicoloring {
 
-    public static void main(String[] args) throws FileNotFoundException {
+    private static Scanner scan;
 
-        Scanner scanner = new Scanner(new File(P10004_Bicoloring.class.getClassLoader().getResource("UVA/10004-in.txt").getFile()));
-//        Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args) throws FileNotFoundException {
+        scan = new Scanner(new File("res/UVA/10004.txt"));
+//        scan = new Scanner(System.in)
 
         int v, e;
-        while (scanner.hasNextInt()) {
-            v = scanner.nextInt();
+        while (scan.hasNextInt()) {
+            v = scan.nextInt();
             if (v == 0) {
                 break;
             }
-            e = scanner.nextInt();
+            e = scan.nextInt();
 
             boolean[][] g = new boolean[v][v];
             for (int i = 0; i < e; i++) {
-                int v1 = scanner.nextInt();
-                int v2 = scanner.nextInt();
+                int v1 = scan.nextInt();
+                int v2 = scan.nextInt();
                 g[v1][v2] = true;
                 g[v2][v1] = true;
             }

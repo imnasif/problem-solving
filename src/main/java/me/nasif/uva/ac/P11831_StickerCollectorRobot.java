@@ -24,9 +24,12 @@ public class P11831_StickerCollectorRobot {
     static char[] instructions;
     static int r, c, s;
 
+    private static Scanner scan;
+
     public static void main(String[] args) throws FileNotFoundException {
-        Scanner scan = new Scanner(new File(P11831_StickerCollectorRobot.class.getClassLoader().getResource("UVA/11831-in.txt").getFile()));
-//        Scanner scan = new Scanner(System.in);
+        scan = new Scanner(new File("res/UVA/11831.txt"));
+//        scan = new Scanner(System.in)
+
         while (true) {
             r = scan.nextInt();
             c = scan.nextInt();

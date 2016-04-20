@@ -3,13 +3,14 @@ package me.nasif.hackerrank.algo.ac;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-import me.nasif.hackerrank.algo.wa.CaesarCipher;
 
 public class FunnyString {
 
+    private static Scanner scan;
+
     public static void main(String[] args) throws FileNotFoundException {
-        Scanner scan = new Scanner(new File(CaesarCipher.class.getClassLoader().getResource("HackerRank/FunnyString-in.txt").getFile()));
-//        Scanner scan = new Scanner(System.in);
+        scan = new Scanner(new File("res/HackerRank/FunnyString.txt"));
+//        scan = new Scanner(System.in);
         int t = scan.nextInt();
 
         while (t-- != 0) {

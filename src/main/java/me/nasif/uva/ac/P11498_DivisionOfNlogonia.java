@@ -16,10 +16,12 @@ public class P11498_DivisionOfNlogonia {
         }
     }
 
-    public static void main(String[] args) throws FileNotFoundException {
+    private static Scanner scan;
 
-        Scanner scan = new Scanner(new File(P11498_DivisionOfNlogonia.class.getClassLoader().getResource("UVA/11498-in.txt").getFile()));
-//        Scanner scan = new Scanner(System.in);
+    public static void main(String[] args) throws FileNotFoundException {
+        scan = new Scanner(new File("res/UVA/11498.txt"));
+//        scan = new Scanner(System.in)
+        
         while (scan.hasNextInt()) {
             int k = scan.nextInt();
             if (k == 0) {

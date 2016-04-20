@@ -10,15 +10,16 @@ import java.util.Scanner;
 public class EvenTree {
 
     public static void main(String[] args) throws FileNotFoundException {
-        Scanner scanner = new Scanner(new File(EvenTree.class.getClassLoader().getResource("HackerRank/EvenTree-in.txt").getFile()));
-//        Scanner scanner = new Scanner(System.in);
+        Scanner scan = new Scanner(new File("res/HackerRank/EvenTree.txt"));
+//        Scanner scan = new Scanner(System.in);
 
-        int v = scanner.nextInt();
-        int e = scanner.nextInt();
+       
+        int v = scan.nextInt();
+        int e = scan.nextInt();
         boolean[][] g = new boolean[v][v];
         for (int i = 0; i < e; i++) {
-            int v1 = scanner.nextInt() - 1;
-            int v2 = scanner.nextInt() - 1;
+            int v1 = scan.nextInt() - 1;
+            int v2 = scan.nextInt() - 1;
             g[v1][v2] = true;
             g[v2][v1] = true;
         }

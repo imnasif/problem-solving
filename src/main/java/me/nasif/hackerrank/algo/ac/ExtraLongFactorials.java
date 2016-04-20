@@ -1,19 +1,17 @@
 package me.nasif.hackerrank.algo.ac;
 
+import java.io.FileNotFoundException;
 import java.math.BigInteger;
 import java.util.Scanner;
 
 public class ExtraLongFactorials {
 
-    private static Scanner scanner;
+    private static Scanner scan;
 
-    private static void initScanner() {
-        scanner = new Scanner(System.in);
-    }
-
-    public static void main(String[] args) {
-        initScanner();
-        int n = scanner.nextInt();
+    public static void main(String[] args) throws FileNotFoundException {
+        scan = new Scanner(System.in);
+  
+        int n = scan.nextInt();
         BigInteger res = new BigInteger("1");
         for (int i = 1; i <= n; i++) {
             res = res.multiply(new BigInteger(i + ""));

@@ -1,23 +1,18 @@
 package me.nasif.hackerrank.algo.ac;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Staircase {
 
-    private static Scanner scanner;
+    private static Scanner scan;
 
-    private static void initScanner() {
-        try {
-            scanner = new Scanner(new File(Staircase.class.getClassLoader().getResource("HackerRank/Staircase-in.txt").getFile()));
-        } catch (Exception ex) {
-            scanner = new Scanner(System.in);
-        }
-    }
+    public static void main(String[] args) throws FileNotFoundException {
+        scan = new Scanner(new File("res/HackerRank/Staircase.txt"));
+//        scan = new Scanner(System.in)
 
-    public static void main(String[] args) {
-        initScanner();
-        int n = scanner.nextInt();
+        int n = scan.nextInt();
         for (int i = 1; i <= n; i++) {
             int spaces = n - i;
             while (spaces-- != 0) {

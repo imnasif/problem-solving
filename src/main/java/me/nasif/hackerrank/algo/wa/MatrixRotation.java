@@ -5,26 +5,26 @@ import java.util.Scanner;
 
 public class MatrixRotation {
 
-    private static Scanner scanner;
+    private static Scanner scan;
 
     private static void initScanner() {
         try {
-            scanner = new Scanner(new File(MatrixRotation.class.getClassLoader().getResource("HackerRank/MatrixRotation-in.txt").getFile()));
+            scan = new Scanner(new File(MatrixRotation.class.getClassLoader().getResource("HackerRank/MatrixRotation-in.txt").getFile()));
         } catch (Exception ex) {
-            scanner = new Scanner(System.in);
+            scan = new Scanner(System.in);
         }
     }
 
     public static void main(String[] args) {
         initScanner();
         int r, c, t;
-        r = scanner.nextInt();
-        c = scanner.nextInt();
-        t = scanner.nextInt();
+        r = scan.nextInt();
+        c = scan.nextInt();
+        t = scan.nextInt();
         int[][] arr = new int[r][c];
         for (int i = 0; i < r; i++) {
             for (int j = 0; j < c; j++) {
-                arr[i][j] = scanner.nextInt();
+                arr[i][j] = scan.nextInt();
             }
         }
         t = t % (2 * c + 2 * (r - 2));

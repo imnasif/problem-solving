@@ -6,9 +6,11 @@ import java.util.Scanner;
 
 public class InsertionSortPart1 {
 
+    private static Scanner scan;
+
     public static void main(String[] args) throws FileNotFoundException {
-        Scanner scan = new Scanner(new File(InsertionSortPart1.class.getClassLoader().getResource("HackerRank/InsertionSortPart1-in.txt").getFile()));
-//        Scanner scan = new Scanner(System.in);
+        scan = new Scanner(new File("res/HackerRank/InsertionSortPart1.txt"));
+//        scan = new Scanner(System.in);
         int s, v;
         s = scan.nextInt();
         int[] arr = new int[s];

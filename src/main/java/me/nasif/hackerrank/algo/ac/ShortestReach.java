@@ -9,22 +9,25 @@ import java.util.Scanner;
 
 public class ShortestReach {
 
+    private static Scanner scan;
+
     public static void main(String[] args) throws FileNotFoundException {
-        Scanner scanner = new Scanner(new File(ShortestReach.class.getClassLoader().getResource("HackerRank/ShortestReach-in.txt").getFile()));
-//        Scanner scanner = new Scanner(System.in);
+        scan = new Scanner(new File("res/HackerRank/ShortestReach.txt"));
+//        scan = new Scanner(System.in)
+
         int t, v, e, s;
-        t = scanner.nextInt();
+        t = scan.nextInt();
         while (t-- != 0) {
-            v = scanner.nextInt();
-            e = scanner.nextInt();
+            v = scan.nextInt();
+            e = scan.nextInt();
             boolean[][] g = new boolean[v][v];
             for (int i = 0; i < e; i++) {
-                int v1 = scanner.nextInt() - 1;
-                int v2 = scanner.nextInt() - 1;
+                int v1 = scan.nextInt() - 1;
+                int v2 = scan.nextInt() - 1;
                 g[v1][v2] = true;
                 g[v2][v1] = true;
             }
-            s = scanner.nextInt() - 1;
+            s = scan.nextInt() - 1;
 
             Queue<Integer> q = new LinkedList<>();
             int[] distance = new int[v];

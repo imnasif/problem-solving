@@ -9,8 +9,7 @@ import java.util.Scanner;
 
 /*
  BFS : AC
-*/
-
+ */
 public class P10653_BombsNoTheyAreMines {
 
     static class Point {
@@ -36,9 +35,9 @@ public class P10653_BombsNoTheyAreMines {
     static final int[] yDir = new int[]{1, 0, 0, -1};
 
     public static void main(String[] args) throws FileNotFoundException {
-
         scan = new Scanner(new File("res/UVA/10653.txt"));
-//       scan = new Scanner(System.in);
+//        scan = new Scanner(System.in)
+
         while (scan.hasNextInt()) {
             r = scan.nextInt();
             c = scan.nextInt();

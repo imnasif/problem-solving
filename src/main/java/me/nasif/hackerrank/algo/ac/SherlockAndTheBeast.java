@@ -1,25 +1,20 @@
 package me.nasif.hackerrank.algo.ac;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class SherlockAndTheBeast {
 
-    private static Scanner scanner;
+    private static Scanner scan;
 
-    private static void initScanner() {
-        try {
-            scanner = new Scanner(new File(SherlockAndTheBeast.class.getClassLoader().getResource("HackerRank/SherlockAndTheBeast-in.txt").getFile()));
-        } catch (Exception ex) {
-            scanner = new Scanner(System.in);
-        }
-    }
+    public static void main(String[] args) throws FileNotFoundException {
+        scan = new Scanner(new File("res/HackerRank/SherlockAndTheBeast.txt"));
+//        scan = new Scanner(System.in)
 
-    public static void main(String[] args) {
-        initScanner();
-        int digits = 0, cases = scanner.nextInt();
+        int digits = 0, cases = scan.nextInt();
         while (cases-- != 0) {
-            digits = scanner.nextInt();
+            digits = scan.nextInt();
             boolean yes = false;
             for (int i = 0; i * 5 < digits; i++) {
                 if ((digits - i * 5) % 3 == 0) {

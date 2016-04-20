@@ -1,27 +1,22 @@
 package me.nasif.hackerrank.algo.ac;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class PlusMinus {
 
-    private static Scanner scanner;
+    private static Scanner scan;
 
-    private static void initScanner() {
-        try {
-            scanner = new Scanner(new File(PlusMinus.class.getClassLoader().getResource("HackerRank/PlusMinus-in.txt").getFile()));
-        } catch (Exception ex) {
-            scanner = new Scanner(System.in);
-        }
-    }
+    public static void main(String[] args) throws FileNotFoundException {
+        scan = new Scanner(new File("res/HackerRank/PlusMinus.txt"));
+//        scan = new Scanner(System.in);
 
-    public static void main(String[] args) {
-        initScanner();
-        int n = scanner.nextInt();
+        int n = scan.nextInt();
         float plus = 0, minus = 0, zero = 0;
         int i = n;
         while (i-- != 0) {
-            float num = scanner.nextFloat();
+            float num = scan.nextFloat();
             if (num > 0) {
                 ++plus;
             } else if (num < 0) {

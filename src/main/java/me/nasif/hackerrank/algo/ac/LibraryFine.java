@@ -1,29 +1,24 @@
 package me.nasif.hackerrank.algo.ac;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class LibraryFine {
 
-    private static Scanner scanner;
+    private static Scanner scan;
 
-    private static void initScanner() {
-        try {
-            scanner = new Scanner(new File(LibraryFine.class.getClassLoader().getResource("HackerRank/LibraryFine-in.txt").getFile()));
-        } catch (Exception ex) {
-            scanner = new Scanner(System.in);
-        }
-    }
+    public static void main(String[] args) throws FileNotFoundException {
+        scan = new Scanner(new File("res/HackerRank/LibraryFine.txt"));
+//        scan = new Scanner(System.in);
 
-    public static void main(String[] args) {
-        initScanner();
         int dAR, mAR, yAR, dER, mER, yER;
-        dAR = scanner.nextInt();
-        mAR = scanner.nextInt();
-        yAR = scanner.nextInt();
-        dER = scanner.nextInt();
-        mER = scanner.nextInt();
-        yER = scanner.nextInt();
+        dAR = scan.nextInt();
+        mAR = scan.nextInt();
+        yAR = scan.nextInt();
+        dER = scan.nextInt();
+        mER = scan.nextInt();
+        yER = scan.nextInt();
         int fine;
 
         if (yAR > yER) {

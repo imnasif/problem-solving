@@ -1,27 +1,22 @@
 package me.nasif.hackerrank.algo.ac;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class UtopianTree {
 
-    private static Scanner scanner;
+    private static Scanner scan;
 
-    private static void initScanner() {
-        try {
-            scanner = new Scanner(new File(UtopianTree.class.getClassLoader().getResource("HackerRank/UtopianTree-in.txt").getFile()));
-        } catch (Exception ex) {
-            scanner = new Scanner(System.in);
-        }
-    }
-
-    public static void main(String[] args) {
-        initScanner();
+    public static void main(String[] args) throws FileNotFoundException {
+        scan = new Scanner(new File("res/HackerRank/UtopianTree.txt"));
+//        scan = new Scanner(System.in)
+        
         int cases, n;
-        cases = scanner.nextInt();
+        cases = scan.nextInt();
         while (cases-- != 0) {
             int h = 1;
-            n = scanner.nextInt();
+            n = scan.nextInt();
             for (int i = 0; i < n; i++) {
                 if (i % 2 == 0) {
                     h *= 2;

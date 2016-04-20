@@ -1,23 +1,18 @@
 package me.nasif.hackerrank.algo.ac;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class CavityMap {
 
-    private static Scanner scanner;
+    private static Scanner scan;
 
-    private static void initScanner() {
-        try {
-            scanner = new Scanner(new File(CavityMap.class.getClassLoader().getResource("HackerRank/CavityMap-in.txt").getFile()));
-        } catch (Exception ex) {
-            scanner = new Scanner(System.in);
-        }
-    }
-
-    public static void main(String[] args) {
-        initScanner();
-        int n = scanner.nextInt();
+    public static void main(String[] args) throws FileNotFoundException {
+        scan = new Scanner(new File("res/HackerRank/CavityMap.txt"));
+//        scan = new Scanner(System.in);
+        
+        int n = scan.nextInt();
         int[][] map = getArray(n, n);
         char[][] res = initResArray(n, map);
 
@@ -57,7 +52,7 @@ public class CavityMap {
     private static int[][] getArray(int row, int column) {
         int[][] array = new int[row][column];
         for (int i = 0; i < row; i++) {
-            String line = scanner.next();
+            String line = scan.next();
             for (int j = 0; j < column; j++) {
                 array[i][j] = Character.getNumericValue(line.charAt(j));
             }

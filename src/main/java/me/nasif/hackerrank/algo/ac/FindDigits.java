@@ -1,26 +1,21 @@
 package me.nasif.hackerrank.algo.ac;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class FindDigits {
 
-    private static Scanner scanner;
+    private static Scanner scan;
 
-    private static void initScanner() {
-        try {
-            scanner = new Scanner(new File(FindDigits.class.getClassLoader().getResource("HackerRank/FindDigits-in.txt").getFile()));
-        } catch (Exception ex) {
-            scanner = new Scanner(System.in);
-        }
-    }
-
-    public static void main(String[] args) {
-        initScanner();
+    public static void main(String[] args) throws FileNotFoundException {
+        scan = new Scanner(new File("res/HackerRank/FindDigits.txt"));
+//        scan = new Scanner(System.in);
+ 
         int cases, n;
-        cases = scanner.nextInt();
+        cases = scan.nextInt();
         while (cases-- != 0) {
-            n = scanner.nextInt();
+            n = scan.nextInt();
             int temp, res = 0;
             temp = n;
             while (temp > 0) {

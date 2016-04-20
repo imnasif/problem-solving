@@ -14,9 +14,11 @@ public class JourneyToTheMoon {
     private static final HashMap<Integer, ArrayList<Integer>> graph = new HashMap<>();
     private static final HashMap<Integer, Integer> country = new HashMap<>();
 
+    private static Scanner scan;
+
     public static void main(String[] args) throws FileNotFoundException {
-        Scanner scan = new Scanner(new File(JourneyToTheMoon.class.getClassLoader().getResource("HackerRank/JourneyToTheMoon-in.txt").getFile()));
-//        Scanner scan = new Scanner(System.in);
+        scan = new Scanner(new File("res/HackerRank/JourneyToTheMoon.txt"));
+//        scan = new Scanner(System.in);
         int v, e;
         v = scan.nextInt();
         e = scan.nextInt();

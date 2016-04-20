@@ -6,9 +6,12 @@ import java.util.Scanner;
 
 public class LarrysArray {
 
+    private static Scanner scan;
+
     public static void main(String[] args) throws FileNotFoundException {
-        Scanner scan = new Scanner(new File(LarrysArray.class.getClassLoader().getResource("HackerRank/LarrysArray-in.txt").getFile()));
-//        Scanner scan = new Scanner(System.in);
+        scan = new Scanner(new File("res/HackerRank/LarrysArray.txt"));
+//        scan = new Scanner(System.in);
+
         int t = scan.nextInt();
         while (t-- != 0) {
             int n = scan.nextInt();

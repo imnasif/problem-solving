@@ -1,28 +1,23 @@
 package me.nasif.hackerrank.algo.ac;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class ChocolateFest {
 
-    private static Scanner scanner;
+    private static Scanner scan;
 
-    private static void initScanner() {
-        try {
-            scanner = new Scanner(new File(ChocolateFest.class.getClassLoader().getResource("HackerRank/ChocolateFest-in.txt").getFile()));
-        } catch (Exception ex) {
-            scanner = new Scanner(System.in);
-        }
-    }
-
-    public static void main(String[] args) {
-        initScanner();
+    public static void main(String[] args) throws FileNotFoundException {
+        scan = new Scanner(new File("res/HackerRank/ChocolateFest.txt"));
+//        scan = new Scanner(System.in);
+        
         int t, n, c, m;
-        t = scanner.nextInt();
+        t = scan.nextInt();
         while (t-- != 0) {
-            n = scanner.nextInt();
-            c = scanner.nextInt();
-            m = scanner.nextInt();
+            n = scan.nextInt();
+            c = scan.nextInt();
+            m = scan.nextInt();
             int canBuy = n / c;
             int result = canBuy;
 

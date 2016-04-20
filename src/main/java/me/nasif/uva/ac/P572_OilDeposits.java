@@ -22,9 +22,12 @@ public class P572_OilDeposits {
 
     }
 
+    private static Scanner scan;
+
     public static void main(String[] args) throws FileNotFoundException {
-        Scanner scan = new Scanner(new File(P572_OilDeposits.class.getClassLoader().getResource("UVA/572-in.txt").getFile()));
-//        Scanner scan = new Scanner(System.in);
+        scan = new Scanner(new File("res/UVA/572.txt"));
+//        scan = new Scanner(System.in)
+
         while (scan.hasNext()) {
             int r, c;
             r = scan.nextInt();

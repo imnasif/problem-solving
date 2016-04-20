@@ -6,9 +6,12 @@ import java.util.Scanner;
 
 public class ManasaAndStones {
 
+    private static Scanner scan;
+
     public static void main(String[] args) throws FileNotFoundException {
-        Scanner scan = new Scanner(new File(ManasaAndStones.class.getClassLoader().getResource("HackerRank/ManasaAndStones-in.txt").getFile()));
-//        Scanner scan = new Scanner(System.in);
+        scan = new Scanner(new File("res/HackerRank/ManasaAndStones.txt"));
+//        scan = new Scanner(System.in);
+
         int t = scan.nextInt();
         while (t-- != 0) {
             int n = scan.nextInt() - 1;

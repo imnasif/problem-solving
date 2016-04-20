@@ -6,19 +6,20 @@ import static java.lang.System.out;
 import java.util.Scanner;
 
 /*
-Ad Hoc : AC
-*/
-
+ Ad Hoc : AC
+ */
 public class P10346_PetersSmokes {
 
+    private static Scanner scan;
+
     public static void main(String[] args) throws FileNotFoundException {
-        Scanner scanner = new Scanner(new File(P10346_PetersSmokes.class.getClassLoader().getResource("UVA/10346-in.txt").getFile()));
-//        Scanner scanner = new Scanner(System.in);
-        
+        scan = new Scanner(new File("res/UVA/10346.txt"));
+//        scan = new Scanner(System.in)
+
         int a, b;
-        while (scanner.hasNextInt()) {
-            a = scanner.nextInt();
-            b = scanner.nextInt();
+        while (scan.hasNextInt()) {
+            a = scan.nextInt();
+            b = scan.nextInt();
             out.printf("%d\n", getResult(a, b));
         }
     }

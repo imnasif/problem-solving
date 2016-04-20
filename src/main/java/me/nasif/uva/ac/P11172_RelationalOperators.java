@@ -9,14 +9,17 @@ import java.util.Scanner;
  */
 public class P11172_RelationalOperators {
 
+    private static Scanner scan;
+
     public static void main(String[] args) throws FileNotFoundException {
-        Scanner scanner = new Scanner(new File(P11172_RelationalOperators.class.getClassLoader().getResource("UVA/11172-in.txt").getFile()));
-//        Scanner scanner = new Scanner(System.in);
-        int cases = scanner.nextInt();
+        scan = new Scanner(new File("res/UVA/11172.txt"));
+//        scan = new Scanner(System.in)
+
+        int cases = scan.nextInt();
         while (cases-- != 0) {
             int a, b;
-            a = scanner.nextInt();
-            b = scanner.nextInt();
+            a = scan.nextInt();
+            b = scan.nextInt();
             if (a < b) {
                 System.out.println("<");
             } else if (a > b) {
