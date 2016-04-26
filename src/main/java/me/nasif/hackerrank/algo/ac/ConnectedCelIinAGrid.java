@@ -21,7 +21,7 @@ public class ConnectedCelIinAGrid {
         comp = new int[110];
 
         for (int i = 0; i < r; i++) {
-            for (int j = 0; j < c; j++) {
+            for (int j = 0; j < c; j++) {                
                 if (scan.nextInt() == 1) {
                     g[i][j] = true;
                 }
