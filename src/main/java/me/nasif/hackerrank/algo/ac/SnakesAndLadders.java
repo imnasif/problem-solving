@@ -1,4 +1,4 @@
-package me.nasif.hackerrank.algo.wa;
+package me.nasif.hackerrank.algo.ac;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -30,7 +30,6 @@ public class SnakesAndLadders {
                     if (i + j <= 100) {
                         l.add(i + j);
                     }
-
                 }
                 g.put(i, l);
             }
@@ -44,7 +43,7 @@ public class SnakesAndLadders {
                         g.get(i).remove(new Integer(lf));
                         g.get(i).add(lt);
                         g.get(lf).clear();
-                        Collections.sort(g.get(i));
+                        Collections.sort(g.get(i), Collections.reverseOrder());
                     }
                 }
             }
@@ -54,6 +53,9 @@ public class SnakesAndLadders {
                 int st = scan.nextInt();
                 for (int i = sf - 6; i < sf; i++) {
                     g.get(i).remove(new Integer(sf));
+                    g.get(i).add(st);
+                    g.get(sf).clear();
+                    Collections.sort(g.get(i), Collections.reverseOrder());
                 }
             }
 
@@ -69,18 +71,18 @@ public class SnakesAndLadders {
                     if (dist[node] == -1) {
                         dist[node] = dist[cur] + 1;
                         q.add(node);
-                    }
-                    if (node == 100) {
-                        found = true;
-                        break;
+                        if (node == 100) {
+                            found = true;
+                            break;
+                        }
                     }
                 }
                 if (found) {
                     break;
                 }
-
             }
             System.out.println(dist[100]);
+//            System.out.println(Arrays.toString(dist));
 
         }
 
