@@ -2,41 +2,27 @@ package me.nasif.uva.ac;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Scanner;
 
-/*
- Flood Fill :  AC
- */
 public class P572_OilDeposits {
 
-    static class Point {
-
-        int x, y;
-
-        public Point(int x, int y) {
-            this.x = x;
-            this.y = y;
-        }
-
-    }
-
     private static Scanner scan;
+    private static int r, c;
+    private static boolean[][] g;
 
     public static void main(String[] args) throws FileNotFoundException {
         scan = new Scanner(new File("res/UVA/572.txt"));
 //        scan = new Scanner(System.in)
 
         while (scan.hasNext()) {
-            int r, c;
+
             r = scan.nextInt();
             c = scan.nextInt();
             if (r == 0) {
                 break;
             }
 
-            boolean[][] g = new boolean[r][c];
+            g = new boolean[r][c];
             for (int i = 0; i < r; i++) {
                 String l = scan.next();
                 for (int j = 0; j < c; j++) {
@@ -46,41 +32,36 @@ public class P572_OilDeposits {
                 }
             }
 
-            boolean[][] visited = new boolean[r][c];
-            int res = 0;
-
+            int count = 0;
             for (int i = 0; i < r; i++) {
                 for (int j = 0; j < c; j++) {
-                    if (g[i][j] && !visited[i][j]) {
-                        visitNeighbours(g, r, c, i, j, visited);
-                        res++;
+                    if (g[i][j]) {
+                        ++count;
+                        visit(i, j);
                     }
                 }
             }
-            System.out.println(res);
+
+            System.out.println(count);
+
+        }
+    }
+
+    private static void visit(int row, int col) {
+        g[row][col] = false;
+        for (int i = 0; i < 8; i++) {
+            int nx = row + xDir[i];
+            int ny = col + yDir[i];
+            if (isValid(nx, ny) && g[nx][ny]) {
+                visit(nx, ny);
+            }
         }
     }
 
     private static final int[] xDir = new int[]{-1, 1, -1, 1, -1, 1, 0, 0};
     private static final int[] yDir = new int[]{-1, 1, 1, -1, 0, 0, 1, -1};
 
-    private static void visitNeighbours(boolean[][] g, int r, int c, int x, int y, boolean[][] visited) {
-
-        Queue q = new LinkedList();
-        q.add(new Point(x, y));
-        while (!q.isEmpty()) {
-            Point current = (Point) q.remove();
-            visited[current.x][current.y] = true;
-            for (int i = 0; i < 8; i++) {
-                Point n = new Point(current.x + xDir[i], current.y + yDir[i]);
-                if (isValid(n.x, n.y, r, c) && g[n.x][n.y] && !visited[n.x][n.y]) {
-                    q.add(n);
-                }
-            }
-        }
-    }
-
-    private static boolean isValid(int x, int y, int r, int c) {
+    private static boolean isValid(int x, int y) {
         return (x >= 0 && x < r && y >= 0 && y < c);
     }
 
