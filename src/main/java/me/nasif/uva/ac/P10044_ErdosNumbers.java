@@ -33,15 +33,35 @@ public class P10044_ErdosNumbers {
             scan.nextLine();
             graph = new HashMap<>();
             while (n-- != 0) {
-                String[] ns = scan.nextLine().split(":")[0].split("\\. *,");
+//                String[] ns = scan.nextLine().split(":")[0].split("\\. *,");
+                String[] ns = scan.nextLine().split(":")[0].split(",");
                 List<String> names = new ArrayList<>();
-                for (String s : ns) {
-                    String name = s.trim();
-                    if (!name.endsWith(".")) {
-                        name = name.concat(".");
+
+//                String finalName = "";
+                String finalName = "";
+
+                for (int x = 0; x < ns.length; ++x) {
+                    if (ns[x].trim().endsWith(".")) {
+                        names.add(finalName += "," + ns[x].trim());
+                        finalName = "";
+
+                    } else {
+                        finalName = ns[x].trim();
+                        
+//                        if (!finalName.isEmpty()) {
+//                            names.add(finalName);
+//                        } 
+//                        
+//                        names.add(ns[x].trim());
                     }
-                    names.add(name.replaceAll(" ", ""));
+
+//                    if (!name.endsWith(".")) {
+//                        name = name.concat(".");
+//                    }
+                    //names.add(name.replaceAll(" ", ""));
                 }
+                
+//                System.out.println(names);
 
                 for (String self : names) {
                     if (!graph.containsKey(self)) {
@@ -59,6 +79,8 @@ public class P10044_ErdosNumbers {
 
             }
 
+//            System.out.println(graph);
+
             q = new LinkedList();
             dist = new HashMap<>();
             q.add("Erdos,P.");
@@ -74,6 +96,8 @@ public class P10044_ErdosNumbers {
                 }
             }
 
+//            System.out.println(dist);
+            
             while (m-- != 0) {
                 String a = scan.nextLine();
 
