@@ -27,7 +27,7 @@ public class P118_MutantFlatworldExplorers {
 
     public static void main(String[] args) throws FileNotFoundException {
         scan = new Scanner(new File("res/UVA/118.txt"));
-//        scan = new Scanner(System.in)
+//        scan = new Scanner(System.in);
 
         max = new Point(scan.nextInt(), scan.nextInt());
         scents = new ArrayList<>();

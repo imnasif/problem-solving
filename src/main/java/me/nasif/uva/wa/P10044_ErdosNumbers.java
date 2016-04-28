@@ -1,4 +1,4 @@
-package me.nasif.uva.ac;
+package me.nasif.uva.wa;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -27,59 +27,33 @@ public class P10044_ErdosNumbers {
         int caseN = 0;
 
         while (k-- != 0) {
-            System.out.printf("Scenario %d\n", ++caseN);
             n = scan.nextInt();
             m = scan.nextInt();
             scan.nextLine();
             graph = new HashMap<>();
             while (n-- != 0) {
-//                String[] ns = scan.nextLine().split(":")[0].split("\\. *,");
                 String[] ns = scan.nextLine().split(":")[0].split(",");
                 List<String> names = new ArrayList<>();
 
-//                String finalName = "";
-                String finalName = "";
-
-                for (int x = 0; x < ns.length; ++x) {
-                    if (ns[x].trim().endsWith(".")) {
-                        names.add(finalName += "," + ns[x].trim());
-                        finalName = "";
-
-                    } else {
-                        finalName = ns[x].trim();
-                        
-//                        if (!finalName.isEmpty()) {
-//                            names.add(finalName);
-//                        } 
-//                        
-//                        names.add(ns[x].trim());
-                    }
-
-//                    if (!name.endsWith(".")) {
-//                        name = name.concat(".");
-//                    }
-                    //names.add(name.replaceAll(" ", ""));
+                for (int x = 0; x < ns.length; x += 2) {
+                    names.add((ns[x].trim() + "," + ns[x + 1].trim()).replaceAll(" ", ""));
                 }
-                
-//                System.out.println(names);
 
+//                System.out.println(names);
                 for (String self : names) {
                     if (!graph.containsKey(self)) {
                         graph.put(self, new ArrayList<>());
                     }
                     ArrayList<String> value = new ArrayList<>();
                     for (String neigh : names) {
-                        if (!neigh.equals(self)) {
+                        if (!neigh.equals(self) && !value.contains(neigh)) {
                             value.add(neigh);
                         }
                     }
                     graph.get(self).addAll(value);
-
                 }
 
             }
-
-//            System.out.println(graph);
 
             q = new LinkedList();
             dist = new HashMap<>();
@@ -96,11 +70,9 @@ public class P10044_ErdosNumbers {
                 }
             }
 
-//            System.out.println(dist);
-            
+            System.out.printf("Scenario %d\n", ++caseN);
             while (m-- != 0) {
                 String a = scan.nextLine();
-
                 if (dist.get(a.replaceAll(" ", "")) == null) {
                     System.out.printf("%s infinity\n", a);
                 } else {
@@ -108,10 +80,6 @@ public class P10044_ErdosNumbers {
                 }
 
             }
-            if (scan.hasNextLine()) {
-                scan.nextLine();
-            }
-
         }
 
     }

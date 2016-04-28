@@ -2,22 +2,18 @@ package me.nasif.uva.ac;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.Map;
 import java.util.Queue;
 import java.util.Scanner;
 
-/*
- Flood FIll : AC
- */
+
 public class P10004_Bicoloring {
 
     private static Scanner scan;
 
     public static void main(String[] args) throws FileNotFoundException {
         scan = new Scanner(new File("res/UVA/10004.txt"));
-//        scan = new Scanner(System.in)
+//        scan = new Scanner(System.in);
 
         int v, e;
         while (scan.hasNextInt()) {
@@ -35,36 +31,35 @@ public class P10004_Bicoloring {
                 g[v2][v1] = true;
             }
 
-            Map<Integer, Boolean> explored = new HashMap<>();
-            Map<Integer, Integer> color = new HashMap<>();
+            int[] color = new int[v];
+            boolean[] visited = new boolean[v];
             Queue<Integer> q = new LinkedList<>();
 
-            for (int i = 0; i < v; i++) {
-                explored.put(i, false);
-                color.put(i, -1);
-            }
-
             q.add(0);
-            color.put(0, 0);
+            color[0] = 1;
             boolean colorable = true;
             while (!q.isEmpty()) {
                 int s = q.remove();
                 for (int i = 0; i < v; i++) {
-                    if (g[s][i] && !explored.get(i)) {
-                        if ((int) color.get(i) == (int) color.get(s)) {
+                    if (g[s][i] && !visited[i]) {
+                        visited[s] = true;
+                        q.add(i);
+                        if (color[i] == color[s]) {
                             colorable = false;
                             break;
                         }
-                        q.add(i);
-                        if (color.get(s) == 0) {
-                            color.put(i, 1);
+
+                        if (color[s] == 1) {
+                            color[i] = 2;
                         } else {
-                            color.put(i, 0);
+                            color[i] = 1;
                         }
 
                     }
                 }
-                explored.put(s, true);
+                if (!colorable) {
+                    break;
+                }
             }
 
             if (colorable) {

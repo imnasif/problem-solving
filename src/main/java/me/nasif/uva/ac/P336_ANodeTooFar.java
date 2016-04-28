@@ -17,7 +17,7 @@ public class P336_ANodeTooFar {
 
     public static void main(String[] args) throws FileNotFoundException {
         scan = new Scanner(new File("res/UVA/336.txt"));
-//        scan = new Scanner(System.in)
+//        scan = new Scanner(System.in);
 
         while (scan.hasNextInt()) {
             n = scan.nextInt();
