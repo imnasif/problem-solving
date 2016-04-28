@@ -43,7 +43,6 @@ public class P1009_BackToUnderworld {
                 addEdge(v2, v1);
             }
             
-            System.out.println(nodes.size());
 
             int res = 0;
             for (Integer node : nodes) {

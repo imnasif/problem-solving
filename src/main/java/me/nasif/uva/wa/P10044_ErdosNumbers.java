@@ -25,7 +25,6 @@ public class P10044_ErdosNumbers {
         k = scan.nextInt();
         scan.nextLine();
         int caseN = 0;
-
         while (k-- != 0) {
             n = scan.nextInt();
             m = scan.nextInt();
@@ -39,7 +38,6 @@ public class P10044_ErdosNumbers {
                     names.add((ns[x].trim() + "," + ns[x + 1].trim()).replaceAll(" ", ""));
                 }
 
-//                System.out.println(names);
                 for (String self : names) {
                     if (!graph.containsKey(self)) {
                         graph.put(self, new ArrayList<>());
