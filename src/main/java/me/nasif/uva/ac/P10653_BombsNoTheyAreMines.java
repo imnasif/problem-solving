@@ -36,7 +36,7 @@ public class P10653_BombsNoTheyAreMines {
 
     public static void main(String[] args) throws FileNotFoundException {
         scan = new Scanner(new File("res/UVA/10653.txt"));
-//        scan = new Scanner(System.in)
+//        scan = new Scanner(System.in);
 
         while (scan.hasNextInt()) {
             r = scan.nextInt();
